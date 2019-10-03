@@ -1,6 +1,9 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:test/test.dart';
 
-import '../lib/json_parsing.dart';
+import '../lib/src/article.dart';
 
 void main() {
   test("parses topstories.json", () {
@@ -15,5 +18,21 @@ void main() {
         '{"by":"lelf","descendants":34,"id":21107730,"kids":[21112031,21112313,21112126,21111996,21111544,21112251,21112226,21111871,21112171,21111662],"score":123,"time":1569772520,"title":"Which companies are using Erlang, and why?","type":"story","url":"https://www.erlang-solutions.com/blog/which-companies-are-using-erlang-and-why-mytopdogstatus.html"}';
 
     expect(parseArticle(jsonString).by, 'lelf');
+  });
+
+  test("parses item.json over a network", () async {
+    const url = 'https://hacker-news.firebaseio.com/v0/beststories.json';
+    final res = await http.get(url);
+    if (res.statusCode == 200) {
+      final idList = json.decode(res.body);
+      if (idList.isNotEmpty) {
+        final storyUrl =
+            'https://hacker-news.firebaseio.com/v0/item/${idList.first}.json';
+        final storyRes = await http.get(storyUrl);
+        if (storyRes.statusCode == 200) {
+          expect(parseArticle(storyRes.body).by, isNotNull);
+        }
+      }
+    }
   });
 }

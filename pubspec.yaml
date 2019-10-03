@@ -24,6 +24,7 @@ dependencies:
   built_collection: any
   built_value: any
   cupertino_icons: ^0.1.2
+  http: any
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,178 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'json_parsing.dart';
+part of 'article.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
+
+Serializer<Article> _$articleSerializer = new _$ArticleSerializer();
+
+class _$ArticleSerializer implements StructuredSerializer<Article> {
+  @override
+  final Iterable<Type> types = const [Article, _$Article];
+  @override
+  final String wireName = 'Article';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers, Article object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'by',
+      serializers.serialize(object.by, specifiedType: const FullType(String)),
+      'kids',
+      serializers.serialize(object.kids,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(int)])),
+      'url',
+      serializers.serialize(object.url, specifiedType: const FullType(String)),
+      'parts',
+      serializers.serialize(object.parts,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(int)])),
+    ];
+    if (object.deleted != null) {
+      result
+        ..add('deleted')
+        ..add(serializers.serialize(object.deleted,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.time != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(object.time,
+            specifiedType: const FullType(int)));
+    }
+    if (object.text != null) {
+      result
+        ..add('text')
+        ..add(serializers.serialize(object.text,
+            specifiedType: const FullType(String)));
+    }
+    if (object.dead != null) {
+      result
+        ..add('dead')
+        ..add(serializers.serialize(object.dead,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.parent != null) {
+      result
+        ..add('parent')
+        ..add(serializers.serialize(object.parent,
+            specifiedType: const FullType(int)));
+    }
+    if (object.poll != null) {
+      result
+        ..add('poll')
+        ..add(serializers.serialize(object.poll,
+            specifiedType: const FullType(int)));
+    }
+    if (object.score != null) {
+      result
+        ..add('score')
+        ..add(serializers.serialize(object.score,
+            specifiedType: const FullType(int)));
+    }
+    if (object.title != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(object.title,
+            specifiedType: const FullType(String)));
+    }
+    if (object.descendants != null) {
+      result
+        ..add('descendants')
+        ..add(serializers.serialize(object.descendants,
+            specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  Article deserialize(Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ArticleBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'deleted':
+          result.deleted = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'by':
+          result.by = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'text':
+          result.text = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'dead':
+          result.dead = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'parent':
+          result.parent = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'poll':
+          result.poll = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'kids':
+          result.kids.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'url':
+          result.url = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'score':
+          result.score = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'parts':
+          result.parts.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'descendants':
+          result.descendants = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$Article extends Article {
   @override
@@ -61,29 +229,11 @@ class _$Article extends Article {
     if (id == null) {
       throw new BuiltValueNullFieldError('Article', 'id');
     }
-    if (deleted == null) {
-      throw new BuiltValueNullFieldError('Article', 'deleted');
-    }
     if (type == null) {
       throw new BuiltValueNullFieldError('Article', 'type');
     }
     if (by == null) {
       throw new BuiltValueNullFieldError('Article', 'by');
-    }
-    if (time == null) {
-      throw new BuiltValueNullFieldError('Article', 'time');
-    }
-    if (text == null) {
-      throw new BuiltValueNullFieldError('Article', 'text');
-    }
-    if (dead == null) {
-      throw new BuiltValueNullFieldError('Article', 'dead');
-    }
-    if (parent == null) {
-      throw new BuiltValueNullFieldError('Article', 'parent');
-    }
-    if (poll == null) {
-      throw new BuiltValueNullFieldError('Article', 'poll');
     }
     if (kids == null) {
       throw new BuiltValueNullFieldError('Article', 'kids');
@@ -91,17 +241,8 @@ class _$Article extends Article {
     if (url == null) {
       throw new BuiltValueNullFieldError('Article', 'url');
     }
-    if (score == null) {
-      throw new BuiltValueNullFieldError('Article', 'score');
-    }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Article', 'title');
-    }
     if (parts == null) {
       throw new BuiltValueNullFieldError('Article', 'parts');
-    }
-    if (descendants == null) {
-      throw new BuiltValueNullFieldError('Article', 'descendants');
     }
   }
 
