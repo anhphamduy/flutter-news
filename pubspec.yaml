@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   http: any
   rxdart: any
+  font_awesome_flutter: any
 
 dev_dependencies:
   flutter_test:
